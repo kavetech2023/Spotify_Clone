@@ -3,7 +3,7 @@ import Sidebar from './Components/Sidebar/Sidebar'
 
 const App = () => {
   return (
-    <div className='h-10 bg-black w-20 '>
+    <div className='h-screen bg-black'>
           <div className='h-[90%] flex'>
             <Sidebar />
           </div>
