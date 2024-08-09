@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaShuffle } from "react-icons/fa6";
 import { MdSkipPrevious } from "react-icons/md";
 import { MdSkipNext } from "react-icons/md";
 import { IoMdPlay } from "react-icons/io";
 import { FaStop } from "react-icons/fa";
+import { PlayerContext } from '../context/PlayerContext';
 
 const Player = () => {
+
+    const {seekBar, seekBg, playStatus, play, pause} = useContext(PlayerContext);
+
   return (
     <div className='h-[10%] backdrop:bg-black flex justify-between items-center text-white px-4'>
         <div className='hidden lg:flex items-center gap-4'>
@@ -22,13 +26,13 @@ const Player = () => {
                 <span className='w-4 cursor-pointer'><FaShuffle /></span>
                 <span className='w-4 cursor-pointer'><MdSkipPrevious /></span>
                 <span className='w-4 cursor-pointer'><MdSkipNext /></span>
-                <span className='w-4 cursor-pointer'><IoMdPlay /></span>
-                <span className='w-4 cursor-pointer'><FaStop /></span>
-            </div>
+                <span onClick={play} className='w-4 cursor-pointer'><IoMdPlay /></span>
+                <span onClick={pause} className='w-4 cursor-pointer'><FaStop /></span>
+            </div> 
             <div className='flex items-center gap-5 '>
                 <p>1:06</p>
-                <div className='w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer'> 
-                    <hr className='h-1 border-none w-10 bg-green-800 rounded-full'/>
+                <div ref={seekBg} className='w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer'> 
+                    <hr ref={seekBar} className='h-1 border-none w-10 bg-green-800 rounded-full'/>
                 </div>
                 <p>3:20</p>
             </div>
