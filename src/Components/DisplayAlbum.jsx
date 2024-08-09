@@ -22,18 +22,22 @@ const DisplayAlbum = () => {
                 <p className='mt-1'>
                     <span className='inline-block w-5 '><ImSpotify /></span>
                     <b>spotify</b>
-                    . 1,000,000 likes
-                    . <b>50 songs</b>
+                    .1,000,000 likes
+                    .<b>50 songs</b>
                     about 2 hr 30 mins
                 </p>
             </div>
         </div>
+
+        
         <div className='grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]'>
             <p><b className='mr-4'>#</b>Title</p>
             <p>Album</p>
             <p className='hidden sm:block'>Date Added</p>
             <span className='m-auto w-4'><CiClock2 /></span>
         </div>
+
+
         {
             songs.map((item, index) => (
                 <div key={index} className='grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer'>
